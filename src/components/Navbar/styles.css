@@ -1,0 +1,30 @@
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu__contenedor{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90vw;
+  align-items:flex-end;
+}
+
+.menu__links{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 30%;
+}
+.menu__imgs{
+    height: 2rem;
+}
+
+.logo{
+    width: 7rem;
+}
