@@ -1,0 +1,42 @@
+.contadorContenedor{
+    display: flex;
+    height: 2rem;
+}
+
+.botonesCantidad{
+    border: 1px solid #caccc6;
+    width: 7rem;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.botonesCantidad:hover{
+    border-color: black;
+}
+
+.controladores{
+    border: none;
+    background-color: white;
+    font-size: 20px;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.controladores:hover{
+    background-color: #eaeaea;
+}
+
+#agregarCarrito{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+#agregarCarrito:hover{
+    background-color: #6f6f70;
+}
