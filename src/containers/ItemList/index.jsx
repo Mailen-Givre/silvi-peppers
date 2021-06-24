@@ -1,7 +1,8 @@
 import { ItemCount } from "../../components/ItemCount";
+import { ItemList } from "../../components/ItemList"
 import React from 'react';
 
-export const ItemList = ({greeting}) => {
+export const ItemListContainer = ({greeting}) => {
     const [stock, setStock] = React.useState(10);
     const [initial, setInitial] = React.useState(1);
 
@@ -21,6 +22,7 @@ export const ItemList = ({greeting}) => {
     return (
         <>
             <h1>{greeting}</h1>
+            <ItemList/>
             <ItemCount initial={initial} onAdd={onAdd} onSubstract={onSubstract}/>
         </>
     )
