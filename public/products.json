@@ -1,0 +1,26 @@
+[{
+    "id":1, 
+    "title":"CATSKIER PINK", 
+    "description":"Lovingly hand crafted from colored paper, with careful details on colored pencil and sparkling sequins. This bad boy is mounted on foam so he has dimension, he pops about 1/8 off the base.", 
+    "price": 175, 
+    "picture":"../multimedia/products/catskier_pink.jpg", 
+    "stock":5
+},
+
+{
+    "id":2, 
+    "title":"CATSKIER YELLOW", 
+    "description":"Lovingly hand crafted from colored paper, with careful details on colored pencil and shimmery watercolor. This bad boy is mounted on foam so he has dimension, he pops about 1/8 off the base.", 
+    "price": 175, 
+    "picture":"https://assets.bigcartel.com/product_images/269039864/yellow+1.jpg", 
+    "stock":10
+},
+
+{
+    "id":3, 
+    "title":"SHARING COOKIES", 
+    "description":"Sometimes it's hard to be generous and share, not gonna lie. But it does do something special to your heart to give away something you know another person will like. Lovingly hand crafted from colored paper, patterned paper and careful details added on colored pencil. Also translucent and iridescent sequins for a touch of shimmer.", 
+    "price": 152, 
+    "picture":"https://assets.bigcartel.com/product_images/273068981/IMG_2488.jpg", 
+    "stock":15
+}]

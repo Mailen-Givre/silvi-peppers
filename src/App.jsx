@@ -1,12 +1,21 @@
 import './App.css';
-import { Navbar } from "./components/Navbar";
-import { ItemListContainer } from "./containers/ItemList";
+import { Navbar } from "./components/NavBar";
+import { ItemListContainer } from "./containers/ItemListContainer";
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <Navbar/>
-      <ItemListContainer greeting = "Welcome"/>
+    <BrowserRouter>
+    <Navbar/>
+      <Switch>
+        <Route exact path="/" component={ItemListContainer}></Route>
+        {/* <Route exact path="/:nombreUsuario" component={ItemListContainer}></Route>  */}
+        <Route path="*" component={() => <p>404</p>}></Route>   
+      </Switch>
+    </BrowserRouter>
+
+{/*       <ItemListContainer greeting = "Welcome"/> */}
     </>
   );
 }

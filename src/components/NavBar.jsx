@@ -1,7 +1,7 @@
-import './styles.css'
-import logo from './imgs/logo.svg'
-import search from './imgs/search.svg'
-import { CartWidget } from '../CartWidget';
+import '../css/NavBar.css'
+import logo from '../multimedia/NavBar/logo.svg'
+import search from '../multimedia/NavBar/search.svg'
+import { CartWidget } from './CartWidget'
 
 export const Navbar = () => {
     return (
