@@ -7,7 +7,7 @@ export const Navbar = () => {
     return (
         <div className="menu__contenedor">
             <ul className='menu__links'>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">Shop</a></li>
                 <li><a href="#">About me</a></li>
                 <li><a href="#">Contact</a></li>
