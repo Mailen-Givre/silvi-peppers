@@ -26,7 +26,7 @@ export const ItemDetailContainer = ({greeting}) => {
     return (
         <>
         <h2>{greeting}</h2>
-        {product ? <ItemDetail title={product.title} price={product.price} description={product.description} picture={product.picture} stock={product.stock}/>
+        {product ? <ItemDetail title={product.title} price={product.price} description={product.description} picture={product.picture} stock={product.stock} initial={1}/>
         : <img src={loading} alt="Loading"></img>}
 {/*         {product.map(item=>{
             return <ItemDetail key={item.id} title={item.title} price={item.price} description={item.description} picture={item.picture} stock={item.stock}/>
