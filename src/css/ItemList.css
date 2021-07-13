@@ -1,0 +1,9 @@
+.flex{
+    display: flex;
+    margin: 5vh 2vw;
+    flex-wrap: wrap;
+}
+
+.loading {
+    margin-left:45%;
+}

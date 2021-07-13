@@ -1,22 +1,18 @@
 import './App.css';
 import { Navbar } from "./components/NavBar";
-import { Categories } from "./components/Categories";
 import { ItemListContainer } from "./containers/ItemListContainer";
 import { ItemDetailContainer } from "./containers/ItemDetailContainer";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Footer } from "./components/Footer"
-import { ShopContext } from './context/ShopContext'
-import { useState } from 'react';
+import { CustomProvider } from './context/ShopContext'
+import { Cart } from './components/Cart'
 
 
 function App() {
-  const [listProducts, setListProducts] = useState([{id:1, name:'toto'}])
-  const [cart, setCart] = useState([])
   return (
-    <ShopContext.Provider value ={{listProducts, setListProducts, cart}}>
+    <CustomProvider>
       <Router>
       <Navbar/>
-      <Categories/>
         <Switch>
           <Route exact path="/">
             <ItemListContainer greeting = {'All the products'}/>
@@ -25,13 +21,16 @@ function App() {
             <ItemListContainer greeting = {'Products by category'}/>
           </Route>
           <Route exact path="/item/:id">
-            <ItemDetailContainer greeting = {'Product detail'}/>
+            <ItemDetailContainer/>
           </Route>
-          <Route path="*" component={() => <p>404</p>}></Route>  
+          <Route path="/cart">
+              <Cart/>
+          </Route> 
+          <Route path="*" component={() => <p>404</p>}></Route>
         </Switch>
-      <Footer/>
+      {/* <Footer/> */}
       </Router>
-    </ShopContext.Provider>
+    </CustomProvider>
   );
 }
 

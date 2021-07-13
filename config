@@ -1,0 +1,17 @@
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyDClnZPZWQs3AtV8T4e_jgL8Y9Ry1wtyBc",
+    authDomain: "silvipeppers-39d4f.firebaseapp.com",
+    projectId: "silvipeppers-39d4f",
+    storageBucket: "silvipeppers-39d4f.appspot.com",
+    messagingSenderId: "127381270651",
+    appId: "1:127381270651:web:b6ec0d4c0ef3fdd921f2de",
+    measurementId: "G-37BT7DQR6F"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  Yo suelo exportar algo así export const itemsDB = firebase.firestore(app).collection("items");
+
+

@@ -1,9 +1,10 @@
-import React from 'react';
-import '../css/ItemCount.css'
+import React, {useContext} from 'react';
+import '../css/ItemCount.css';
+
 
 //INCREMENTA O DECREMENTA LA CANT DE UN PRODUCTO
 
-export const ItemCount = ({onCart, onAdd, onSubstract, initial}) => {
+export const ItemCount = ({onCart, onAdd, onSubstract, initial, product}) => {
     return (
         <div className= "contadorContenedor">
             <div className="botonesCantidad">
@@ -11,7 +12,7 @@ export const ItemCount = ({onCart, onAdd, onSubstract, initial}) => {
                 <p>{initial}</p>
                 <button className='controladores' onClick= {onAdd}>+</button>
             </div>
-                <button id='agregarCarrito' onClick={onCart}>Add to cart</button>
+                <button id='agregarCarrito' onClick={()=>{onCart(product)}}>Add to cart</button>
         </div>
             )
 }

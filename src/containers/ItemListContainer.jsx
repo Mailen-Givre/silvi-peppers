@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { ItemList } from "../components/ItemList"
 import { useParams } from "react-router-dom";
+import '../css/ItemListContainer.css'
+import { Categories } from "../components/Categories";
+
 
 // FETCH DE PRODUCTOS products.json
 
@@ -53,10 +56,14 @@ export const ItemListContainer = ({greeting}) => {
         })       
     }, []) */
 
+
     return (
-        <>
-            <h1>{greeting} {category ? `: ${category.name}` : ""}</h1>
-            <ItemList items={filterProducts}/>
-        </>
+      <>
+        <Categories/>
+          <div className="center">
+              <h1>{greeting} {category ? `: ${category.name}` : ""}</h1>
+              <ItemList items={filterProducts}/>
+          </div>
+      </>
     )
 }

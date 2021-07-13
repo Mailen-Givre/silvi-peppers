@@ -1,6 +1,9 @@
+import deco from '../multimedia/NavBar/deco.svg'
+import '../css/Footer.css'
+
 export const Footer = ({})=> {
 
     return <>
-        <p>Este es el footer</p>
+        <img src= {deco} alt="deco" className="decoFooter"/>
     </>
 }

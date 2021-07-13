@@ -2,9 +2,19 @@ li {
     list-style: none;
 }
 
-a {
+.menu__contenedor a {
     text-decoration: none;
     color: black;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.menu__contenedor a:hover{
+    color: #d32854;
+}
+
+.NavActive{
+    color: #d32854 !important;
 }
 
 .menu__contenedor{
@@ -13,6 +23,7 @@ a {
   justify-content: space-between;
   width: 90vw;
   align-items:flex-end;
+  margin-top: -5vh;
 }
 
 .menu__links{
@@ -26,5 +37,11 @@ a {
 }
 
 .logo{
-    width: 7rem;
+    width: 10rem;
+}
+
+.deco{
+    position: relative;
+    z-index: -2;
+    top: 0;
 }

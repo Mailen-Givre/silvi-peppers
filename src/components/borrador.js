@@ -54,3 +54,20 @@ export const Borrador = ({greeting}) => {
         </>
     )
 }
+
+// PRUEBA CONTEXT
+const [cart, setCart] = useState([/* list of products */])
+
+const [quantity, setQuantity] = useState(0)
+const onCart = (product) => {
+    //if/find si ese elemento esta en el carrito
+    // guardar en local storage
+    setCart([...cart, product])
+}
+useEffect(() => {
+    setQuantity(cart.length)
+    console.log(cart)
+    console.log(cart.length)
+}, [cart])
+
+//onCart, cart, setCart, quantity
