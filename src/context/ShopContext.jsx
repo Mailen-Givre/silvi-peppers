@@ -16,8 +16,11 @@ export const CustomProvider = ({children}) => {
     }
 
     //crea el producto para pasarlo a la lógica
-    const crearProducto = (objetoItem, quantity, callback)=> {
-        const itemAgregado = {producto: objetoItem, cantidad: quantity}        
+    const crearProducto = (objetoItem, quantity, callback, precio)=> {
+        const itemAgregado = {
+            producto: objetoItem, 
+            cantidad: quantity,
+            subTotal: objetoItem.price * quantity}       
         callback(itemAgregado)
     }
 
@@ -28,6 +31,7 @@ export const CustomProvider = ({children}) => {
         if (!existe) {
             setCart(cart => [...cart, producto])
             setQuantity(quantityB = quantityB + producto.cantidad)
+            //setSubtotal(producto.cantidad * producto.precio)
         }
             else{alert("The product has already been added.")}
     }
@@ -50,6 +54,11 @@ export const CustomProvider = ({children}) => {
     const clear = ()=> {
         setCart([])
     }
+
+    const getTotal = () => {
+        return cart.map(element => element.subTotal).reduce((a,b) => a + b, 0)
+
+      }
 
     //cantidad de productos
     
@@ -94,7 +103,7 @@ export const CustomProvider = ({children}) => {
 
 
     return (
-        <Provider value={{addItem, removeItem, clear, cart, quantityB}}>
+        <Provider value={{addItem, removeItem, clear, cart, quantityB, getTotal}}>
 
             {children}
 

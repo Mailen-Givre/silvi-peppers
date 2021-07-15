@@ -4,7 +4,7 @@ import { ShopContext } from '../context/ShopContext';
 import { CartItem } from './CartItem.jsx'
 
 export const Cart = () => {
-  const {cart, clear} = useContext(ShopContext)
+  const {cart, clear, getTotal} = useContext(ShopContext)
    
 
     return (
@@ -12,7 +12,7 @@ export const Cart = () => {
           {cart.length > 0 ?
           <>
           {cart.map(item=>{return <CartItem key={item.producto.id} item={item}/>})}
-          <p>Total: $ </p>
+          <p>Total: ${getTotal()} </p>
           <button onClick={clear}>Empty cart</button>
           </>
           : <>
