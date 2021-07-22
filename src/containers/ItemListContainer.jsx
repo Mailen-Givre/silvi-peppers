@@ -3,6 +3,7 @@ import { ItemList } from "../components/ItemList"
 import { useParams } from "react-router-dom";
 import '../css/ItemListContainer.css'
 import { Categories } from "../components/Categories";
+import {getFirestore} from '../firebase/client'
 
 
 // FETCH DE PRODUCTOS products.json
@@ -14,10 +15,46 @@ export const ItemListContainer = ({greeting}) => {
     const [category, setCategory] = useState(null);
     const { id } = useParams();
 
-    useEffect(()=>{
+    
+        useEffect(()=>{
+          setProducts([])
+          const db = getFirestore();
+          const itemsCollection = db.collection("productos")
+  
+          if(id){
+              const query = itemsCollection.where("category","==",id)
+              query.get()
+              .then((resultado)=>{
+                  console.log(resultado.docs)
+                  resultado.docs.forEach((doc)=>{
+                      const item = {  id: doc.id,
+                                      data: doc.data()    }
+                      setProducts(products => [...products, item])
+                      console.log(products)
+                  })
+              })
+              .catch((err)=>{
+                  console.log(err)
+              })
+          }else {
+              const query = itemsCollection.get()
+              query
+              .then((resultado)=>{
+                  resultado.docs.forEach((doc)=>{
+                      const item = {  id: doc.id,
+                                      data: doc.data()    }
+                      setProducts(products => [...products, item])
+                  })
+              })
+              .catch((err)=>{
+                  console.log(err)
+              })
+          }
+      }, [id]);
+  
+/*    useEffect(()=>{
         setFilterProducts([]);
-        setCategory(null);
-
+        setCategory(null);     
         const getItems = async () => {
             let p, cat;
             if (products.length !== 0)
@@ -42,28 +79,18 @@ export const ItemListContainer = ({greeting}) => {
             }, 1000);
           };
           getItems();
-        }, [id, products, categories]);
+        }, [id, products, categories]); */
         
-/*         let getProductos = fetch("../products.json")
-        getProductos
-        .then((resultado)=>{
-            return resultado.json()
-        })
-        .then((datos)=>{
-            setTimeout(()=>{
-                setItems(datos)
-            },2000)
-        })       
-    }, []) */
+
 
 
     return (
       <>
         <Categories/>
           <div className="center">
-              <h1>{greeting} {category ? `: ${category.name}` : ""}</h1>
-              <ItemList items={filterProducts}/>
+             {/*  <h1>{greeting} {category ? `: ${category.name}` : ""}</h1> */}
+              <ItemList items={products}/>
           </div>
       </>
     )
-}
+  }

@@ -8,8 +8,9 @@ import { CustomProvider } from './context/ShopContext'
 import { Cart } from './components/Cart'
 
 
+
 function App() {
-  return (
+   return (
     <CustomProvider>
       <Router>
       <Navbar/>
