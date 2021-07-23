@@ -6,9 +6,9 @@ export const Categories = () => {
         <div className='categories'>
             <ul>
                 <li><NavLink to={"/"} activeClassName='categoryActive'>All</NavLink></li>
-                <li><NavLink to={"/category/1"} activeClassName='categoryActive'>Embroidery</NavLink></li>
-                <li><NavLink to={"/category/2"} activeClassName='categoryActive'>Drawings</NavLink></li>
-                <li><NavLink to={"/category/3"} activeClassName='categoryActive'>Paper Art</NavLink></li>
+                <li><NavLink to={"/category/embroidery"} activeClassName='categoryActive'>Embroidery</NavLink></li>
+                <li><NavLink to={"/category/drawings"} activeClassName='categoryActive'>Drawings</NavLink></li>
+                <li><NavLink to={"/category/paper_art"} activeClassName='categoryActive'>Paper Art</NavLink></li>
             </ul>
         </div>
     )

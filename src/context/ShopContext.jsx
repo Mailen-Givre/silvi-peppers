@@ -27,27 +27,26 @@ export const CustomProvider = ({children}) => {
     //chuequea si el producto ya fue agregado, si no, lo agrega
     const isInCart = (producto)=> {
         const existe = cart.find(element => element.producto.id === producto.producto.id)
-        /* console.log(existe) */
         if (!existe) {
             setCart(cart => [...cart, producto])
             setQuantity(quantityB = quantityB + producto.cantidad)
-            //setSubtotal(producto.cantidad * producto.precio)
         }
             else{alert("The product has already been added.")}
     }
     
     //remover un item del carrito usando su id
-    const removeItem = (itemId)=> {
-        quitarItem(itemId, borrarItem)
+    const removeItem = (itemId, cantidad)=> {
+        quitarItem(itemId, cantidad, borrarItem)
     }
 
-    const quitarItem = (itemId, callback)=> {
+    const quitarItem = (itemId, cantidad, callback)=> {
         const index = cart.indexOf(cart.find(element => element.producto.id === itemId))
-        callback(index)
+        callback(index, cantidad)
     }
 
-    const borrarItem = (index)=> {
+    const borrarItem = (index, cantidad)=> {
         setCart(cart.splice(index, 1))
+        setQuantity(quantityB = quantityB - cantidad)
     }
 
     //remover todos los items
@@ -59,47 +58,6 @@ export const CustomProvider = ({children}) => {
         return cart.map(element => element.subTotal).reduce((a,b) => a + b, 0)
 
       }
-
-    //cantidad de productos
-    
-/*     useEffect(() => {
-
-        setQuantity(cart.length)
-    }, [cart]) */
-
-    //FIREBASE
-
-    useEffect(()=>{
-        // const DB = getFirestore(); // Conexion a la base de datos
-        // const COLLECTION = DB.collection("productos") // tomamos la coleccion
-        // COLLECTION.get().then(querySnapshot =>{
-        //     console.log(querySnapshot.size)
-        //     console.log(querySnapshot.docs.map(elenebt => element.data()))
-        // })
-  
-      // async function getData(){
-      //   const DB = getFirestore()
-      //   const COLLECTION = DB.collection("productos")
-      //   const RESPONSE = await COLLECTION.get()
-      //     console.log(RESPONSE.docs.map(element => element.data()))
-      // }
-      // setListProducts(RESPONSE.data());
-      // setListProducts(RESPONSE.doc.map(element => {
-      //   return {id: element.id, ...element.data}
-      // }))
-      // getData();
-  
-      async function getData(){
-        const DB = getFirestore()
-        const COLLECTION = DB.collection("productos")
-        const RESPONSE = await COLLECTION.doc('meNn8dUdekSoMM5wMFGJ').get() // traer un solo objeto
-        //const RESPONSE = await COLLECTION.where('stock', '>', 0).offset(20).limit(20).get() //ejemplo de filtro. 
-        // con el limit te limita la cant de productos a buscar y el offset es desde que producto empieza (para hacer los prox 20)
-          console.log(RESPONSE.data())
-      }
-      getData();
-    },[]);
-  
 
 
     return (

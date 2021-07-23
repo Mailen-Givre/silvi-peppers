@@ -3,7 +3,6 @@ import { ShopContext } from '../context/ShopContext';
 import { ItemCount } from './ItemCount';
 
 export const CartItem = ({item})=> {
-    /* console.log(item) */
     const {cantidad, producto} = item
     const {removeItem} = useContext(ShopContext)
    
@@ -13,6 +12,6 @@ export const CartItem = ({item})=> {
         <p>Price: ${producto.price}</p>
         <p>Quantity: {cantidad}</p>
         <p>Subtotal: ${producto.price * cantidad}</p>
-        <button onClick={()=>removeItem(producto.id)}>Remove from cart</button>
+        <button onClick={()=>removeItem(producto.id, cantidad)}>Remove from cart</button>
     </div>)
 }

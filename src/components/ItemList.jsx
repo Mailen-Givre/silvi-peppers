@@ -7,11 +7,17 @@ import {NavLink} from 'react-router-dom';
 //MAP DEL ITEM (key al elemento)
 
 export const ItemList = ({items}) => {
-  
+     console.log(items)
     return (
         <div className="flex">
             {items.length > 0 ? items.map(item=>{
-                return <NavLink to={`/item/${item.id}`}><Item id={item.id} title={item.title} price={item.price} description={item.description} picture={item.picture} stock={item.stock}/></NavLink>
+                return (
+                    <div>
+                        <NavLink to={`/item/${item.id}`} key={item.id}>
+                            <Item id={item.id} item={item}/>
+                        </NavLink>
+                    </div>
+                )
             })
             : <img src={loading} alt="Loading" className= "loading" ></img>}
         </div>

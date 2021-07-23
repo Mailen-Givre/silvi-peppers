@@ -10,9 +10,9 @@ import {getFirestore} from '../firebase/client'
 
 export const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([]);
-    const [filterProducts, setFilterProducts] = useState([]);
+/*     const [filterProducts, setFilterProducts] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [category, setCategory] = useState(null);
+    const [category, setCategory] = useState(null); */
     const { id } = useParams();
 
     
@@ -25,13 +25,14 @@ export const ItemListContainer = ({greeting}) => {
               const query = itemsCollection.where("category","==",id)
               query.get()
               .then((resultado)=>{
-                  console.log(resultado.docs)
-                  resultado.docs.forEach((doc)=>{
+                  resultado.docs.map((doc)=>{
                       const item = {  id: doc.id,
                                       data: doc.data()    }
+                      console.log(item)
+
                       setProducts(products => [...products, item])
-                      console.log(products)
                   })
+                  console.log(products)
               })
               .catch((err)=>{
                   console.log(err)
@@ -40,11 +41,15 @@ export const ItemListContainer = ({greeting}) => {
               const query = itemsCollection.get()
               query
               .then((resultado)=>{
-                  resultado.docs.forEach((doc)=>{
+                  resultado.docs.map((doc)=>{
                       const item = {  id: doc.id,
                                       data: doc.data()    }
+                      console.log(item)
+
                       setProducts(products => [...products, item])
                   })
+
+                  console.log(products)
               })
               .catch((err)=>{
                   console.log(err)
@@ -52,38 +57,6 @@ export const ItemListContainer = ({greeting}) => {
           }
       }, [id]);
   
-/*    useEffect(()=>{
-        setFilterProducts([]);
-        setCategory(null);     
-        const getItems = async () => {
-            let p, cat;
-            if (products.length !== 0)
-              p = id ? products.filter((p) => p.category === parseInt(id)) : products;
-            else {
-              const response = await fetch("../products.json");
-              let aux = await response.json();
-              p = aux;
-              setProducts(aux);
-            }
-            if (id) {
-              if (categories.length === 0) {
-                const response = await fetch("../categories.json");
-                let aux = await response.json();
-                setCategories(aux);
-              }
-              cat = categories.find((c) => c.id === parseInt(id));
-            }
-            setTimeout(() => {
-              setFilterProducts(p);
-              setCategory(cat);
-            }, 1000);
-          };
-          getItems();
-        }, [id, products, categories]); */
-        
-
-
-
     return (
       <>
         <Categories/>

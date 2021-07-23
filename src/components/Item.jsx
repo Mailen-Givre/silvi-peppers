@@ -4,12 +4,13 @@ import { AddCart } from './AddCart';
 
 //INFO DEL PRODUCTO agregar stock
 
-export const Item = ({title,picture,price})=> {
-
+export const Item = ({item})=> {
+    const {data} = item
+    
     return <div className="item">
-        <img src={picture} alt="Imagen de producto" height="350px"></img>
+        <img src={data.picture} alt="Imagen de producto" height="350px"></img>
         <AddCart/>
-        <p>{title}</p>
-        <p>${price}</p>
+        <p>{data.title}</p>
+        <p>${data.price}</p>
     </div>
 }
