@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Footer } from "./components/Footer"
 import { CustomProvider } from './context/ShopContext'
 import { Cart } from './components/Cart'
+import { Checkout } from './components/Checkout'
 
 
 
@@ -26,7 +27,10 @@ function App() {
           </Route>
           <Route path="/cart">
               <Cart/>
-          </Route> 
+          </Route>
+          <Route path="/checkout">
+              <Checkout/>
+          </Route>
           <Route path="*" component={() => <p>404</p>}></Route>
         </Switch>
       {/* <Footer/> */}

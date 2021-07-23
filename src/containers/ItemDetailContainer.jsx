@@ -25,7 +25,8 @@ export const ItemDetailContainer = () => {
                               title: resultado.title,
                               price: resultado.price,
                               description: resultado.description,
-                              picture: resultado.picture    }
+                              picture: resultado.picture,
+                              stock: resultado.stock    }
               setProduct(res)
           })
           .catch((err)=>{

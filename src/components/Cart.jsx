@@ -14,6 +14,7 @@ export const Cart = () => {
           {cart.map(item=>{return <CartItem key={item.producto.id} item={item}/>})}
           <p>Total: ${getTotal()} </p>
           <button onClick={clear}>Empty cart</button>
+          <button><NavLink to="/checkout">Buy</NavLink></button>
           </>
           : <>
               <p>No products in the cart</p>
