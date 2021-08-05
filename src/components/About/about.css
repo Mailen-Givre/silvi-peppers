@@ -1,0 +1,9 @@
+.about{
+    margin: 7rem auto;
+    display: flex;
+    width: 50%;
+}
+
+.about_text{
+    margin-left: 2vw;
+}

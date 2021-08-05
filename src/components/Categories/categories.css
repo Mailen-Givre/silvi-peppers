@@ -1,0 +1,24 @@
+.categories ul{
+    display: flex;
+    margin-left: 5vw;
+}
+
+.categories a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 0.5rem 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: normal;
+    font-size:medium;
+}
+
+.categories a:hover{
+    background-color: #f86489;
+
+}
+
+.categoryActive{
+    background-color: #d32854 !important;
+    color: white !important;
+}

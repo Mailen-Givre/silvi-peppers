@@ -1,0 +1,22 @@
+.addCart{
+    display: flex;
+    font-weight: normal;
+    width: 8rem;
+    position: relative;
+    z-index: 1;
+    top: -4rem;
+    background-color: white;
+    left: 12rem;
+
+}
+
+
+.addCart:hover{
+    background-color: #f3f3f3;
+    color: #666667;
+}
+
+.cart{
+    height: 1.3rem;
+    margin: 0.3rem 0.5rem 0 0.5rem;
+}

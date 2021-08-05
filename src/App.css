@@ -1,3 +1,18 @@
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.container{
+  padding-bottom: 3rem;
+}
+
+.notFound{
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+}
+
 .App {
   text-align: center;
 }

@@ -1,0 +1,123 @@
+li {
+    list-style: none;
+}
+
+.menu__contenedor a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.menu__contenedor a:hover{
+    color: #f86489;
+}
+
+.NavActive{
+    color: #d32854 !important;
+}
+
+.menu__contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
+    align-items: center;
+    margin: -2.7rem auto 0 auto;
+}
+
+.menu__links{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 30%;
+    margin-top: 3.5rem;
+}
+
+.menu__imgs{
+    height: 1.7rem;
+    margin: auto 0;
+}
+
+.logo{
+    width: 10rem;
+}
+
+.deco{
+    position: relative;
+    z-index: -2;
+    top: 0;
+    height: 3rem;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/silvipeppers-39d4f.appspot.com/o/deco.svg?alt=media&token=2ccaacca-10fa-470b-8162-db88ab928cf5");
+    background-repeat: repeat-x;
+}
+
+.menu_search{
+    border: 1px solid #666;
+    border-radius: 0.5rem;
+    height: 2rem;
+}
+
+.menu_search:hover{
+    border-color: black;
+}
+
+.menu_search input{
+    border:none;
+    margin-left: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight:100;
+    font-size: medium;
+    border-radius: 0.5rem;
+    width: 80%;
+    background: transparent;
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white  inset;
+    opacity: 0.5;
+  }
+
+.menu_search input:focus{
+    outline: none;
+}
+.menu_search_icon{
+    height: 1rem;
+    padding: 0.5rem 0.5rem 0 0;
+}
+
+.menu_search_icon:hover{
+    cursor: pointer;
+}
+
+.menu_search_icon:hover path{
+    fill: #f86489;
+}
+
+.menu_derecha{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+}
+
+#fill_x5F_heart path:hover{
+    fill: black;
+    cursor: pointer;
+}
+
+#menu_user:hover #fill_x5F_user_1_ circle, #menu_user:hover #fill_x5F_user_1_ path{
+    fill: black;
+    cursor: pointer;
+}
+
+.menu_icons{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+#fill_orders path:hover{
+    fill: black;
+    cursor: pointer;
+}

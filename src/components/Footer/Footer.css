@@ -1,0 +1,33 @@
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+}
+
+.footer_deco{
+    bottom: 0;
+    height: 3rem;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/silvipeppers-39d4f.appspot.com/o/deco.svg?alt=media&token=2ccaacca-10fa-470b-8162-db88ab928cf5");
+    background-repeat: repeat-x;
+    z-index: -1;
+}
+
+.footer_redes{
+    display: flex;
+    justify-content: space-around;
+    width: 8rem;
+    background-color: white;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+}
+
+.footer_redes img{
+    height: 2rem;
+}
+
+.footer_redes img:hover{
+    filter: invert(24%) sepia(44%) saturate(4642%) hue-rotate(329deg) brightness(86%) contrast(91%);
+}

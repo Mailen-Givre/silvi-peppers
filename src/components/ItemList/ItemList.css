@@ -1,0 +1,17 @@
+.flex{
+    display: flex;
+    margin: 4rem 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.loading {
+    margin: 0 auto;
+}
+.items{
+    transition: all 0.5s ease-in-out;
+}
+
+.items:hover{
+    transform: scale(1.05)
+}

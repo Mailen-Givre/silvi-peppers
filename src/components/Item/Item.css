@@ -1,0 +1,27 @@
+.item{
+    margin: 1rem 1rem;
+    font-weight: bold;
+}
+
+.item p {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    text-align: start;
+}
+
+ a{
+    text-decoration: none;
+    color: black;
+}
+
+.item_img{
+    height: 21rem;
+}
+
+#item_title{
+    margin-top: -20px;
+}
+
+#item_price{
+    font-weight: normal;
+}
