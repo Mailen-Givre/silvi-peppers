@@ -2,6 +2,9 @@
     display: flex;
     height: 2.5rem;
     margin-top: 1.5rem;
+    background-color: white;
+    justify-content: space-between;
+    width: 15rem;
 }
 
 .botonesCantidad{
@@ -28,15 +31,38 @@
 
 .controladores:hover{
     background-color: #eaeaea;
+    cursor: pointer;
 }
 
-#agregarCarrito{
+.controladores:disabled{
+    cursor: auto;
+}
+
+.controladores:hover:disabled{
+    background-color: white;
+}
+
+.botonesCantidad:disabled:hover{
+    border-color: #caccc6;
+}
+
+.agregarCarrito{
     border: none;
     background-color: black;
     color: white;
     padding: 0.5rem 1rem;
 }
 
-#agregarCarrito:hover{
+.agregarCarrito:hover{
     background-color: #6f6f70;
+    cursor: pointer;
+}
+
+.agregarCarrito:disabled{
+    background-color: #6f6f70;
+    cursor:auto;
+}
+
+.counter:disabled{
+    color: #caccc6;
 }

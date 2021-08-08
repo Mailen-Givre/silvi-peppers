@@ -1,0 +1,19 @@
+.menu__imgs{
+    height: 1.6rem;
+    margin-top: 0.2rem;
+}
+
+#menu_user:hover #fill_x5F_user_1_ circle, #menu_user:hover #fill_x5F_user_1_ path{
+    fill: black;
+    cursor: pointer;
+}
+
+#fill_orders path:hover{
+    fill: black;
+    cursor: pointer;
+}
+
+#Capa_1 path{
+    fill: black;
+}
+

@@ -1,22 +1,80 @@
-.addCart{
-    display: flex;
-    font-weight: normal;
-    width: 8rem;
+.relative{
+    position: relative;
+    height: 1rem;
+}
+
+.addCart_position{
     position: relative;
     z-index: 1;
-    top: -4rem;
-    background-color: white;
     left: 12rem;
+    bottom: 8rem;
+    width: 8rem;
+    background-color: white;
+}
 
+.addCart{
+    background-color: white;
+    width: 8rem; 
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
 }
 
 
 .addCart:hover{
     background-color: #f3f3f3;
     color: #666667;
+    cursor: pointer;
+}
+
+.addCart:hover .cart{
+    opacity: 0.5;
 }
 
 .cart{
-    height: 1.3rem;
-    margin: 0.3rem 0.5rem 0 0.5rem;
+    height: 1.1rem;
+    margin: auto 0;
+}
+
+.addCart_text{
+    font-weight: normal;
+    font-size: 0.9rem;
+    margin: auto 0;
+}
+
+.addCart_count{
+    transform: scale(0.8);
+    background-color: white;
+    position: absolute;
+    z-index: 3;
+    right: 0.1rem;
+}
+.addCart_count .contadorContenedor{
+    flex-direction: column;
+    margin-top: 0;
+    width: 8rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.appear{
+    display: inline-block;
+}
+
+.disappear{
+    display:none;
+}
+
+.addCart_count .botonesCantidad{
+    margin-right: 0;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+#addCart_active{
+    height: 7rem;
+    box-shadow: 2px 2px 5px rgb(230 226 226 / 0.5);
+    position: absolute;
+    bottom: 3rem;
+    z-index: 3;
 }

@@ -21,19 +21,14 @@ export const getFirestore = () =>{
     return firebase.firestore(firebaseConfig);
 }
 
+export function getProducts() {
+    const db = getFirestore();
+    const productos = db.collection("productos").orderBy("order", "asc");
+    return productos.get() //una promise propia de firebase
+  }
 
-// import firebase from "firebase/app";
-// import "firebase/firestore";
-
-// const firebaseConfig = {
-//     apiKey: "AIzaSyBsI9Dw6g22WS5exuQauQ-8j5YCmAHhchc",
-//     authDomain: "coderhouse-reactjs.firebaseapp.com",
-//     projectId: "coderhouse-reactjs",
-//     storageBucket: "coderhouse-reactjs.appspot.com",
-//     messagingSenderId: "231574732582",
-//     appId: "1:231574732582:web:c8d1ca9a166f2cb2570be7"
-//   };
-
-// const app = firebase.initializeApp(firebaseConfig);
-
-// export const firestore = firebase.firestore(app);
+export function getCategories() {
+  const db = getFirestore();
+  const categories = db.collection("categories")
+  return categories.get() //una promise propia de firebase
+}

@@ -34,11 +34,6 @@ li {
     margin-top: 3.5rem;
 }
 
-.menu__imgs{
-    height: 1.7rem;
-    margin: auto 0;
-}
-
 .logo{
     width: 10rem;
 }
@@ -52,48 +47,6 @@ li {
     background-repeat: repeat-x;
 }
 
-.menu_search{
-    border: 1px solid #666;
-    border-radius: 0.5rem;
-    height: 2rem;
-}
-
-.menu_search:hover{
-    border-color: black;
-}
-
-.menu_search input{
-    border:none;
-    margin-left: 0.5rem;
-    padding-bottom: 0.5rem;
-    font-weight:100;
-    font-size: medium;
-    border-radius: 0.5rem;
-    width: 80%;
-    background: transparent;
-}
-
-input:-webkit-autofill {
-    box-shadow: 0 0 0px 1000px white  inset;
-    opacity: 0.5;
-  }
-
-.menu_search input:focus{
-    outline: none;
-}
-.menu_search_icon{
-    height: 1rem;
-    padding: 0.5rem 0.5rem 0 0;
-}
-
-.menu_search_icon:hover{
-    cursor: pointer;
-}
-
-.menu_search_icon:hover path{
-    fill: #f86489;
-}
-
 .menu_derecha{
     width: 30%;
     display: flex;
@@ -101,23 +54,13 @@ input:-webkit-autofill {
     margin-top: 2.5rem;
 }
 
-#fill_x5F_heart path:hover{
-    fill: black;
-    cursor: pointer;
-}
-
-#menu_user:hover #fill_x5F_user_1_ circle, #menu_user:hover #fill_x5F_user_1_ path{
-    fill: black;
-    cursor: pointer;
-}
-
 .menu_icons{
     display: flex;
     justify-content: space-around;
-    width: 30%;
+    width: 20%;
 }
 
-#fill_orders path:hover{
-    fill: black;
-    cursor: pointer;
+.NavIconActive path{
+    fill: #d32854;
 }
+

@@ -1,6 +1,7 @@
 .categories ul{
     display: flex;
     margin-left: 5vw;
+    text-transform: capitalize;
 }
 
 .categories a {

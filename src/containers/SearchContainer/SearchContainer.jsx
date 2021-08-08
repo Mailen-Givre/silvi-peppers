@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import { ItemList } from "../../components/ItemList/ItemList"
 import { useParams } from "react-router-dom";
-import './ItemListContainer.css'
+import '../ItemListContainer/ItemListContainer.css'
 import { Categories } from "../../components/Categories/Categories";
 import {getFirestore} from '../../firebase/client'
+import { SearchResults } from '../../components/SearchResults';
 
-export const ItemListContainer = ({}) => {
+export const SearchContainer = ({}) => {
     const [products, setProducts] = useState([]);
     const [notFound, setNotFound] = useState(false)
     const { id } = useParams();
@@ -31,7 +31,6 @@ export const ItemListContainer = ({}) => {
                     })
                 })
                 result.length ? setProducts(result) : setNotFound(true)
-                console.log(products)
             })
             .catch((err)=>{
                 console.log(err)
@@ -43,9 +42,8 @@ export const ItemListContainer = ({}) => {
       <>
         <Categories/>
           <div className="center">
-              <ItemList items={products}/>
-              { !products.length && !notFound ? <img src={process.env.PUBLIC_URL + "/multimedia/loading-cat.gif"} alt="Loading" className= "loading" ></img> : null }
-              { !products.length && notFound ? <img src={process.env.PUBLIC_URL + "/multimedia/404.png"} alt="404" className="notFound"/> : null }
+              {!products.length && !notFound ? <img src={process.env.PUBLIC_URL + "/multimedia/loading-cat.gif"} alt="Loading" className= "loading" ></img> 
+              : <SearchResults items={products} /> }
           </div>
       </>
     )

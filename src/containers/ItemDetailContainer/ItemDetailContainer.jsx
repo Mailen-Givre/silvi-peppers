@@ -5,40 +5,30 @@ import {getFirestore} from '../../firebase/client'
 import "./itemDetailContainer.css"
 
 export const ItemDetailContainer = () => {
-    const { id } = useParams();
-    const [product, setProduct] = useState(null);
-  
-    useEffect(()=>{
-      setProduct()
-      const db = getFirestore();
-      const itemsCollection = db.collection("productos")
+    let { id } = useParams();
+    const [product, setProduct] = useState("");
+    const [notFound, setNotFound] = useState(false)
 
-      if(id){
-          const itemId = id
-          const query = itemsCollection.get()
-          query
-          .then((resultados)=>{
-              const arrayDocs = resultados.docs
-              const resultado = (arrayDocs.filter(doc=>doc.id===id)[0]).data()
-              const res = {   id: itemId,
-                              category: resultado.category,
-                              title: resultado.title,
-                              price: resultado.price,
-                              description: resultado.description,
-                              picture: resultado.picture,
-                              stock: resultado.stock    }
-              setProduct(res)
-          })
-          .catch((err)=>{
-              console.log(err)
-          })
-      }
+    const getItem = (id) => {
+        const db = getFirestore();
+        db.collection('productos').doc(id).get().then((snapshot) => {
+           !snapshot.exists ? setNotFound(true) : setProduct(snapshot.data())
+        });
+      };
+    
+      useEffect(() => {
+        getItem(id);
+      }, [id]);
 
-  }, [id])
 
+ console.log(product)
     return (
         <>
-        {product ? <ItemDetail title={product.title} price={product.price} description={product.description} picture={product.picture} stock={product.stock} initial={1} product={product}/>
-        : <img src={process.env.PUBLIC_URL + "/multimedia/loading-cat.gif"} alt="Loading" className="loading" ></img>}
-        </>)
-}
+        {product === '' 
+        ? (!notFound && <img src={process.env.PUBLIC_URL + "/multimedia/loading-cat.gif"} alt="Loading" className="loading" />)
+        : <ItemDetail item={product}/> 
+        }
+        {notFound && <img src={process.env.PUBLIC_URL + "/multimedia/404.png"} alt="404" className="notFound"/>}
+        </>
+        )
+};

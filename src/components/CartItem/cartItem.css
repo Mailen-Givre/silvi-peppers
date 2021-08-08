@@ -1,0 +1,48 @@
+.cartItem{
+    display: flex;
+    width: 48%;
+    height: 10rem;
+}
+
+.cartItem img{
+    height: 10rem;
+}
+
+.cartItem_info{
+    border: 1px solid #d32854;
+    margin-left: 1rem;
+    width: 100%;
+    padding-left: 1rem;   
+}
+
+.cartItem .agregarCarrito{
+    display: none;
+}
+
+.cartItem_qty{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.cartItem .contadorContenedor{
+    width: auto;
+    margin: auto 0;
+}
+
+.cartItem .botonesCantidad{
+    margin-right: 0;
+}
+
+#cartItem_remove{
+    height: 1rem;
+    margin: auto 0;
+}
+
+#cartItem_remove:hover{
+    cursor: pointer;
+}
+
+.cartItem_price{
+    color: grey;
+}

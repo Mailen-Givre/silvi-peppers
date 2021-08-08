@@ -4,18 +4,18 @@ import { ItemListContainer } from "./containers/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from "./containers/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Footer } from "./components/Footer/Footer"
-import { CustomProvider } from './context/ShopContext'
-import { Cart } from './components/Cart'
+import { Cart } from './components/Cart/Cart'
 import { Checkout } from './components/Checkout'
 import { Home } from './components/Home/Home';
 import { About } from './components/About/About';
 import { Contact } from './components/Contact/Contact';
-import { Favourites } from "./components/Favourites/Favourites"
+import { CartProvider } from './context/CartContext';
+import { SearchContainer } from './containers/SearchContainer/SearchContainer';
 
 function App() {
    return (
     <div className="page-container">
-    <CustomProvider>
+    <CartProvider>
       <Router>
       <Navbar/>
       <div className="container">
@@ -23,6 +23,9 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
+          <Route path="/products" >
+            <SearchContainer/>
+          </Route> 
           <Route exact path="/about">
             <About/>
           </Route>
@@ -44,15 +47,12 @@ function App() {
           <Route path="/checkout">
               <Checkout/>
           </Route>
-          <Route exact path="/favourites">
-              <Favourites/>
-          </Route> 
           <Route path="*" component={() => <img src={process.env.PUBLIC_URL + "/multimedia/404.png"} alt="404" className="notFound"/>}></Route>
         </Switch>
         </div>
       <Footer/>
       </Router>
-    </CustomProvider>
+    </CartProvider>
     </div>
   );
 }

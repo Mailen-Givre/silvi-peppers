@@ -1,0 +1,17 @@
+.form__input {
+    width: 70%;
+    margin: 20px 0px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px solid rgb(99, 178, 49);
+    box-shadow: 0px 0px 3px #63b231 inset;
+}
+
+.error__input {
+    border-color: red;
+    box-shadow: 0px 0px 3px red inset;
+}

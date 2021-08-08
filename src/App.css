@@ -1,3 +1,15 @@
+p:hover{
+  cursor:default;
+}
+
+h1:hover{
+  cursor:default;
+}
+
+h4:hover{
+  cursor:default;
+}
+
 .page-container {
   position: relative;
   min-height: 100vh;
