@@ -23,8 +23,8 @@ export const CartProvider = ({children}) => {
             }
             mergeDuplicate(purchase, purchase.item.productId, addItems)
             cartCounter()
-            console.log("Item completo", item)
-            console.log("Item reducido", purchase)
+/*             console.log("Item completo", item)
+            console.log("Item reducido", purchase) */
     }
 
     const searchIdInCart = (itemId) => {
@@ -67,10 +67,12 @@ export const CartProvider = ({children}) => {
         setCart([])
     }
 
+    const [availableStock, setAvailableStock] = useState()
+
 
     return (
         <CartContext.Provider value={{cart, setCart, searchIdInCart, stock, setStock, addMoreToCart, changeQuantity,
-          removeFromCart, addProduct, mergeDuplicate, clearCart, total, cartCounter, 
+          removeFromCart, addProduct, mergeDuplicate, clearCart, total, cartCounter, availableStock, setAvailableStock
           }}>
             {children}
         </CartContext.Provider>

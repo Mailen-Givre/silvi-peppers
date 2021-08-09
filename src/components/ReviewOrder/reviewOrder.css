@@ -17,10 +17,12 @@
 
 .reviewOrder_item-info{
     display: flex;
+    justify-content: space-between;
+    width: 25rem;
 }
 
 .reviewOrder_p{
-    margin-left: 1rem;
+    margin-left: -7rem;
 }
 
 .reviewOrder_total{

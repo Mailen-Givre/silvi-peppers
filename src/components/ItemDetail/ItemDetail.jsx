@@ -7,35 +7,24 @@ import { useHistory } from "react-router-dom";
 
 export const ItemDetail = ({item})=> {
     const {stock, setStock} = useContext(CartContext)
-    
-    const [addItems, setAddItems] = useState(0)
-
-    const [cantItem, setCantItem] = useState()
+    const {availableStock, setAvailableStock} = useContext(CartContext)
+    const {addProduct} = useContext(CartContext)
+    const {counter} = useContext(CartContext)
     const [initial, setInitial] = useState(1);
-    /* const {addProduct} = useContext(CartContext) */
+    const [addItems, setAddItems] = useState(0)
 
     useEffect(()=> { 
         setStock(item.stock)
-        console.log(stock + "1")
     }, [setStock, item])
 
-    const onAdd = (counter) => {
-        console.log(counter)
-        setAddItems(counter)
-        handleStock()
-/*         addProduct(item, addItems) */
-        console.log(addItems)
-    }
-
-    const handleStock = ()=> {
-        if(stock>0) {
-/*             setStock(stock - addItems); */
-            setCantItem(initial)
-        }
-    }    
-    
     let history = useHistory();
-    
+
+    const onCart = (counter) => {
+        setAddItems(counter)
+        /* addProduct(item, addItems) */
+        addProduct(item, counter)
+        setAvailableStock(item.stock-addItems)
+      }
     
     return <>
         <button onClick={() => history.goBack()} className="goBack"><img src= {process.env.PUBLIC_URL + "/multimedia/flecha-izquierda.svg"} alt="go Back"/>Go back</button>
@@ -46,16 +35,14 @@ export const ItemDetail = ({item})=> {
                 <div className="details">
                     <p>{item.description}</p>
                     <p id="details_price"><b>Price:</b> ${item.price}</p><br/>
-                    <p><b>Available stock:</b> {item.stock}</p>
-        
-                     {cantItem ?
+                    <p><b>Available stock:</b> {availableStock}</p>
+                      {addItems ?
                         <>
                             <button className="btn-finish"><NavLink className="link-finish" to="/cart">Finish my purchase</NavLink></button>
                             <button className="btn-keep" onClick={() => history.goBack()}>Keep shopping</button>
                         </>
-                        : <ItemCount initial={initial} onAdd={onAdd} item={item} addItems={addItems} setAddItems={setAddItems}
-                        stock={stock} setStock={setStock}/>
-                    } 
+                        : <ItemCount initial={initial} item={item} stock={stock} onCart={onCart}/>
+                    }  
                 </div>
 
             </div>

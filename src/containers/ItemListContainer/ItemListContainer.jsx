@@ -31,7 +31,6 @@ export const ItemListContainer = ({}) => {
                     })
                 })
                 result.length ? setProducts(result) : setNotFound(true)
-                console.log(products)
             })
             .catch((err)=>{
                 console.log(err)

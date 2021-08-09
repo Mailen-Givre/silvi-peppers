@@ -12,7 +12,7 @@ export const ItemDetailContainer = () => {
     const getItem = (id) => {
         const db = getFirestore();
         db.collection('productos').doc(id).get().then((snapshot) => {
-           !snapshot.exists ? setNotFound(true) : setProduct(snapshot.data())
+           !snapshot.exists ? setNotFound(true) : setProduct({id: snapshot.id, ...snapshot.data()})
         });
       };
     
@@ -20,8 +20,6 @@ export const ItemDetailContainer = () => {
         getItem(id);
       }, [id]);
 
-
- console.log(product)
     return (
         <>
         {product === '' 

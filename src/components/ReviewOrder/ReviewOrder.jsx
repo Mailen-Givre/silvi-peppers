@@ -1,35 +1,40 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import "./reviewOrder.css"
+import { CartContext } from '../../context/CartContext';
 
 export const ReviewOrder = () => {
+    const {cart, total} = useContext(CartContext)
+    const totalPrice = total()
+
     return (
         <div className="reviewOrder_container">
             <h2>Review of order</h2>
-            <div className="reviewOrder_item">
-                <div className="reviewOrder_item-info">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/silvipeppers-39d4f.appspot.com/o/beautiful_boys.jpg?alt=media&token=b31b2ed9-7a5c-4848-9f6f-7131d9910c2e"></img>
-                    <div className="reviewOrder_p">
-                        <h4>Beautiful Boys</h4>
-                        <p>x 4</p>
-                    </div>
-                </div>
-                <h4>$200</h4>
-            </div>
-            <hr />
-            <div className="reviewOrder_item">
-                <div className="reviewOrder_item-info">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/silvipeppers-39d4f.appspot.com/o/beautiful_boys.jpg?alt=media&token=b31b2ed9-7a5c-4848-9f6f-7131d9910c2e"></img>
-                    <div className="reviewOrder_p">
-                        <h4>Beautiful Boys</h4>
-                        <p>x 4</p>
-                    </div>
-                </div>
-                <h4>$200</h4>
-            </div>
-            <hr />
+            <ul className="reviewOrder_item">
+                {
+                    cart.map(
+                            (obj, pos) => {
+                                return (
+                                    <li key={obj.item.productId}>
+                                        <div className="reviewOrder_item-info">
+                                            <img src={obj.item.picture}></img>
+                                            <div className="reviewOrder_p">
+                                                <h4>{obj.item.title}</h4>
+                                                <p>x {obj.quantity}</p>
+                                            </div>
+                                            <h4>{obj.item.price * obj.quantity}</h4>
+                                        </div>
+                                        <hr />
+                                    </li>
+                                );
+                            }
+                    )
+                }
+            </ul>
+
+
             <div className="reviewOrder_total">
                 <p>Total:</p>
-                <h3>$400</h3>
+                <h3>${totalPrice}</h3>
             </div>
         </div>
     )

@@ -63,6 +63,23 @@
     cursor:auto;
 }
 
+.counter{
+    cursor: default;
+    width: 2rem;
+    text-align: center;
+    border: none;
+}
+
+.counter:focus{
+    outline: none;
+}
+
 .counter:disabled{
     color: #caccc6;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

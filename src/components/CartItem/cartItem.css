@@ -2,6 +2,7 @@
     display: flex;
     width: 48%;
     height: 10rem;
+    margin: 1rem 0;
 }
 
 .cartItem img{

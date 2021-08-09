@@ -13,8 +13,8 @@ export const ItemList = ({items}) => {
             { items.map((item)=>{
                 return (
                     <div className="items">
-                        <NavLink to={`/item/${item.id}`} key={item.id}>
-                            <Item id={item.id} item={item}/>
+                        <NavLink to={`/item/${item.id}`}>
+                            <Item key={item.id} item={item}/>
                         </NavLink>
                         <AddCart id={item.id} item={item}/>
                     </div>

@@ -8,7 +8,7 @@ export const CartWidget = () => {
     const {cart, cartCounter} = useContext(CartContext)
     const cartItems = cartCounter()
     cart.length && cartCounter()
-    console.log(cart)
+/*     console.log(cart) */
     return (
         <>
         <NavLink to="/cart" id="cartWidget" activeClassName='NavIconActive'>
