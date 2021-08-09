@@ -5,12 +5,13 @@ import { ItemDetailContainer } from "./containers/ItemDetailContainer/ItemDetail
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Footer } from "./components/Footer/Footer"
 import { Cart } from './components/Cart/Cart'
-import { Checkout } from './components/Checkout'
+import { Checkout } from './components/Checkout/Checkout'
 import { Home } from './components/Home/Home';
 import { About } from './components/About/About';
 import { Contact } from './components/Contact/Contact';
 import { CartProvider } from './context/CartContext';
 import { SearchContainer } from './containers/SearchContainer/SearchContainer';
+import { Order } from './components/Order/Order'
 
 function App() {
    return (
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route path="/checkout">
               <Checkout/>
+          </Route>
+          <Route path="/order">
+              <Order/>
           </Route>
           <Route path="*" component={() => <img src={process.env.PUBLIC_URL + "/multimedia/404.png"} alt="404" className="notFound"/>}></Route>
         </Switch>

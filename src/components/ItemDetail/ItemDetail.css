@@ -1,6 +1,6 @@
 .itemDetail{
     width: 70vw;
-    margin: 1rem auto;
+    margin: 1rem auto 3rem auto;
     border: 3px solid #d32854;
     position: relative;
 }
@@ -63,4 +63,32 @@
 #details_price{
     margin-bottom: -2rem;
     margin-top: 2rem;
+}
+
+.btn-finish{
+    border: none;
+    background-color: #d32854;
+    padding: 0.5rem 1rem;
+}
+
+.btn-finish:hover{
+    background-color: #f86489;
+}
+
+.link-finish{
+    color: white;
+}
+
+.btn-keep{
+    border: 1px solid #d32854;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: #d32854;
+    margin-left: 1rem;
+}
+
+.btn-keep:hover{
+    border-color:#f86489;
+    color: #f86489;
+    cursor: pointer;
 }

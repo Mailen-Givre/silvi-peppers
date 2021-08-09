@@ -1,0 +1,43 @@
+.order_container{
+    width: 90vw;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+.order_id{
+    color: #d32854;
+    font-weight: bold;
+    border: none;
+    font-size: medium;
+}
+
+.order_id:focus{
+    outline: none;
+}
+
+.copy{
+    height: 1.5rem;;
+}
+
+.copy:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.order_code{
+    width: 35%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_copy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+}
+
+.copied{
+    color: #d32854;
+}

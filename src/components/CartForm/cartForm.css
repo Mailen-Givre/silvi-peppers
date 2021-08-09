@@ -1,0 +1,45 @@
+.form_container{
+    width: 50%;
+}
+
+.form__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form__submit {
+    background-color: #d32854;
+    color: white;
+    border: none;
+    margin: 1.5rem 0 2rem 0;
+    width: 200px;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-size:medium;
+}
+
+.form__submit:hover {
+    background-color: #f86489;
+    cursor: pointer;
+}
+
+/* Ver */
+
+.loading-state {
+    background-color: rgba(99, 178, 49, 0.1);
+    border: 1px outset #63b231;
+    border-radius: 3px;
+    box-shadow: 0 0 2px silver inset;
+}
+
+.span__loading {
+    display: flex;
+    align-items: center;
+}
+
+.loading {
+    margin-left: 5px;
+    width: 15px;
+}

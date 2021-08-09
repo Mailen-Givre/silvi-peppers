@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { getFirestore } from '../firebase/client'
 
-export const Order = (order) => {
+export const Order2 = (order) => {
     const [orderId, setOrderId] = useState()
     
     //Preparar nueva orden y crear doc en firestore

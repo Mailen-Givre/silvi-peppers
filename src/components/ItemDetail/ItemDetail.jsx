@@ -47,14 +47,15 @@ export const ItemDetail = ({item})=> {
                     <p>{item.description}</p>
                     <p id="details_price"><b>Price:</b> ${item.price}</p><br/>
                     <p><b>Available stock:</b> {item.stock}</p>
-                    {cantItem ?
+        
+                     {cantItem ?
                         <>
-                            <button><NavLink to="/cart">Finish my purchase</NavLink></button>
-                            <button onClick={() => history.goBack()}>Keep shoping</button>
+                            <button className="btn-finish"><NavLink className="link-finish" to="/cart">Finish my purchase</NavLink></button>
+                            <button className="btn-keep" onClick={() => history.goBack()}>Keep shopping</button>
                         </>
                         : <ItemCount initial={initial} onAdd={onAdd} item={item} addItems={addItems} setAddItems={setAddItems}
                         stock={stock} setStock={setStock}/>
-                    }
+                    } 
                 </div>
 
             </div>

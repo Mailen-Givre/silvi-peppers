@@ -1,0 +1,6 @@
+.checkout_container{
+    width: 80vw;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+}

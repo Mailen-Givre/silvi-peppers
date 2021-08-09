@@ -1,0 +1,38 @@
+.reviewOrder_container{
+    background-color: #fbd4de;
+    text-align: left;
+    width: 40%;
+    margin-left: 5rem;
+    padding: 0 2rem;
+}
+
+.reviewOrder_item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviewOrder_item img{
+    height: 5rem;
+}
+
+.reviewOrder_item-info{
+    display: flex;
+}
+
+.reviewOrder_p{
+    margin-left: 1rem;
+}
+
+.reviewOrder_total{
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviewOrder_item h4{
+    margin-top: 0;
+}
+
+hr{
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-top: 1rem;
+}

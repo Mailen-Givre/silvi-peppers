@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./cartForm.css"
 import FormInput from "../FormInput/FormInput"
+import {Link} from 'react-router-dom';
  
 
 export const CartForm = ({getInfo, orderId}) => {
@@ -16,15 +17,15 @@ export const CartForm = ({getInfo, orderId}) => {
     const validation = {
         fullname: {
             regex: /^[a-zA-z]+ (.+\s+.*)|(.*\s+.+)[a-zA-z]+$/i,
-            error: "Ingrese su nombre completo"
+            error: "Please enter your full name"
         },
         telephone: {
-            regex: /^((\(?\d{3}\)?[-. ]?\d{4})|(\(?\d{4}\)?[-. ]?\d{3})|(\(?\d{5}\)?[-. ]?\d{2}))[-. ]?\d{4}$/,
-            error: "Ingrese un número válido para Argentina. Ej: (011) 4780-9032"
+            regex: /\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*(\d{1,2})$/,
+            error: "Please enter a valid number. Ex +54 11 87654321"
         },
         email: {
             regex: /^[-a-z0-9~!$%^&*_=+}{'?]+(\.[-a-z0-9~!$%^&*_=+}{'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i,
-            error: "Ingrese una dirección de correo válida"
+            error: "Please enter a valid email address"
         }
     };
     const validate = (e, inputValue) => {
@@ -40,7 +41,7 @@ export const CartForm = ({getInfo, orderId}) => {
         };
         newData[e.target.name] = e.target.value
         setFormData(newData)
-        formError && validate(e, e.target.value) //valida al momento de escribir
+        formError && validate(e, e.target.value) 
     }
 
     const submitHandler = (e) => {
@@ -53,27 +54,27 @@ export const CartForm = ({getInfo, orderId}) => {
     }
 
     const inputs = [
-        { name: "fullname", type: "text", placeholder: "Nombre completo"},
-        { name: "telephone", type: "tel", placeholder: "(011) 4780-9032"},
-        { name: "email", type: "email", placeholder: "Email"}
+        { name: "fullname", type: "text", label: "Full Name"},
+        { name: "telephone", type: "tel", label: "Phone", placeholder:"+56 2 12345678"},
+        { name: "email", type: "email", label: "Address"}
     ]
     
     return (
-        <>
-            <h2 className="form__title">Complete sus datos</h2>
+        <div className="form_container">
+            <h2>Billing Address</h2>
             <form onSubmit={submitHandler} className="form__form">
                 { inputs.map((input) => 
-                    <FormInput key={input.name} name={input.name} type={input.type} placeholder={input.placeholder}
+                    <FormInput key={input.name} name={input.name} type={input.type} label={input.label} placeholder={input.placeholder}
                         valueHandler={valueHandler} validate={validate} formError={formError} /> )
                 }
                 { ! finish ?
-                    <button className={!load ? "cartview__button form__submit" : "cartview__button form__submit loading-state" }
+                    <button className={!load ? "form__submit" : "form__submit loading-state" }
                        type="submit" disabled={orderId}>
-                           { !finish && !load ? "Generar orden de compra" 
-                             : <span className="span__loading">Confirmando <img className="loading" src="/images/greenloading.gif" alt="loading"/></span> }
+                           { !finish && !load ? "Generate purchase order" 
+                             : <span className="span__loading">Confirming <img className="loading" src="/images/greenloading.gif" alt="loading"/></span> }
                     </button>
-                    : <button className="cartview__button form__submit">Orden generada</button> }
+                    : <Link to="/order"> <button className="form__submit">Generated order</button> </Link>}
             </form>
-        </>
+        </div>
     )
 }
