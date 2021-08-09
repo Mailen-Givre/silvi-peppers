@@ -16,7 +16,7 @@ export const ReviewOrder = () => {
                                 return (
                                     <li key={obj.item.productId}>
                                         <div className="reviewOrder_item-info">
-                                            <img src={obj.item.picture}></img>
+                                            <img src={obj.item.picture} alt="product"></img>
                                             <div className="reviewOrder_p">
                                                 <h4>{obj.item.title}</h4>
                                                 <p>x {obj.quantity}</p>

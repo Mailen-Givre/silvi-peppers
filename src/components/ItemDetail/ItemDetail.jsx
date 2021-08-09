@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { ItemCount } from "../ItemCount/ItemCount";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import './ItemDetail.css';
 import { useHistory } from "react-router-dom";
@@ -9,8 +9,7 @@ export const ItemDetail = ({item})=> {
     const {stock, setStock} = useContext(CartContext)
     const {availableStock, setAvailableStock} = useContext(CartContext)
     const {addProduct} = useContext(CartContext)
-    const {counter} = useContext(CartContext)
-    const [initial, setInitial] = useState(1);
+    let initial = 1
     const [addItems, setAddItems] = useState(0)
 
     useEffect(()=> { 

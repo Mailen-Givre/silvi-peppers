@@ -1,10 +1,8 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect } from 'react';
 import './ItemCount.css';
-import { CartContext } from '../../context/CartContext';
 
 export const ItemCount = ({initial, stock, onCart, itemId}) => {
     const [counter, setCounter] = useState(initial);
-    const {changeQuantity} = useContext(CartContext)
 
     const inputChangedHandler = (event) => {
         setCounter(event.target.value);
@@ -12,12 +10,10 @@ export const ItemCount = ({initial, stock, onCart, itemId}) => {
 
     const onAdd = () => {
         counter < stock && setCounter(counter + 1)
-        /* changeQuantity(itemId, counter) */
     }
 
     const onSubstract = () => {
         counter >= initial && setCounter(counter - 1)
-        /* changeQuantity(itemId, counter) */
     };
 
     useEffect(() => {

@@ -1,14 +1,13 @@
 import './addCart.css'
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import { ItemCount } from "../ItemCount/ItemCount";
 import { CartContext } from '../../context/CartContext';
 
 export const AddCart = (id, item)=> {
     console.log()
     const [isActive, setActive] = useState(true);
-    const context = useContext(CartContext)
     const {addProduct} = useContext(CartContext)
-    const [addItems, setAddItems] = useState(0)
+/*     const [addItems, setAddItems] = useState(0) */
     
     const toggleClass = () => {
         setActive(!isActive);
@@ -17,7 +16,7 @@ export const AddCart = (id, item)=> {
     const stock = id.item.stock
 
     const onCart = (counter) => {
-        setAddItems(counter)
+/*         setAddItems(counter) */
         /* addProduct(item, addItems) */
         addProduct(item, counter)
       }

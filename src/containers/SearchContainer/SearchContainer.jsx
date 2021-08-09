@@ -5,7 +5,7 @@ import { Categories } from "../../components/Categories/Categories";
 import {getFirestore} from '../../firebase/client'
 import { SearchResults } from '../../components/SearchResults';
 
-export const SearchContainer = ({}) => {
+export const SearchContainer = () => {
     const [products, setProducts] = useState([]);
     const [notFound, setNotFound] = useState(false)
     const { id } = useParams();

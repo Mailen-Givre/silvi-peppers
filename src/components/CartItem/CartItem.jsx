@@ -5,7 +5,6 @@ import { ItemCount } from '../ItemCount/ItemCount'
 
 export const CartItem = ()=> {
     const {cart,removeFromCart} = useContext(CartContext)
-    const {addProduct} = useContext(CartContext)
     const remove = (itemId) => {
         removeFromCart(itemId)
     }
@@ -17,7 +16,7 @@ export const CartItem = ()=> {
                 (obj, pos) => {
                     return (
                         <li key={obj.item.productId} className="cartItem">
-                            <img src={obj.item.picture}></img>
+                            <img src={obj.item.picture} alt="product"></img>
                             <div className="cartItem_info">
                                 <h4>{obj.item.title}</h4>
                                 <div className="cartItem_qty">
@@ -28,10 +27,6 @@ export const CartItem = ()=> {
                                 </div>
                             </div>
 
-                                    {/* <button onClick={() => { context.removeItem(pos) }} className="cart-item__remove">
-                                        <img src={deleteIcon} className="delete-icon" alt="" />
-                                    </button> */}
-
                         </li>
                     );
                 }
@@ -40,21 +35,3 @@ export const CartItem = ()=> {
         </ul>
     )
 }
-/*             <div className="cartItem">
-                <img src={picture}></img>
-                <div className="cartItem_info">
-                    <h4>{title}</h4>
-                    <div className="cartItem_qty">
-                        <p className="cartItem_price">${price}</p>
-                        <ItemCount />
-                        <p>${price * quantity}</p>
-                        <img src= {process.env.PUBLIC_URL + "/multimedia/trash.svg"} alt="removeItem" id="cartItem_remove"/>
-                    </div>
-                </div> */
-
-{/*         <h4>{producto.title}</h4>
-        <img src={producto.picture} alt={producto.title} height="200px"></img>
-        <p>Price: ${producto.price}</p>
-        <p>Quantity: {cantidad}</p>
-        <p>Subtotal: ${producto.price * cantidad}</p>
-        <button onClick={()=>removeItem(producto.id, cantidad)}>Remove from cart</button> */}

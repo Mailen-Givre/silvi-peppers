@@ -1,26 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import "./cartForm.css"
 import FormInput from "../FormInput/FormInput"
-import {Link} from 'react-router-dom';
-import { getFirestore } from '../../firebase/client'
-import firebase from "firebase/app"
 import { Order } from '../Order/Order';
  
 
 export const CartForm = ({cart, total}) => {
     
-    const [load, setLoad] = useState(false)
-    const [finish, setFinish] = useState(false)
     const initialState = { name: "", phone: "", email: ""}
 
     const [formData, setFormData] = useState(initialState)
     const [formError, setFormError] = useState(null)
-    /* const [buyer, setBuyer] = useState({ name: '', phone: '', email: '' }); */
-
+    
     const [order, setOrder] = useState()
-  /*   const [name, setName] = useState()
-    const [phone, setPhone] = useState()
-    const [email, setEmail] = useState() */
+
 
     const valueHandler = (e) => {
         let newData = {
@@ -47,8 +39,6 @@ export const CartForm = ({cart, total}) => {
     console.log(order)
 
 
-
-    //console.log(formError);
     const validation = {
         name: {
             regex: /^[a-zA-z]+ (.+\s+.*)|(.*\s+.+)[a-zA-z]+$/i,
@@ -83,20 +73,13 @@ export const CartForm = ({cart, total}) => {
         (<div className="form_container">
             <h2>Billing Address</h2>
             <form className="form__form" onSubmit={(e)=>newUsuario(e)}>
-            {/* <form onSubmit={submitHandler} className="form__form"> */}
                 { inputs.map((input) => 
                     <FormInput key={input.name} name={input.name} type={input.type} label={input.label} placeholder={input.placeholder}
                     valueHandler={valueHandler} validate={validate} formError={formError} /> )
                 }
-                {/* { ! finish ?
-                    <button className={!load ? "form__submit" : "form__submit loading-state" }
-                       type="submit" disabled={orderId}>
-                           { !finish && !load ? "Generate purchase order" 
-                             : <span className="span__loading">Confirming</span> }
-                    </button>
-                    : <button className="form__submit">Generated order</button>} */}
+
                     <button type="submit" className="form__submit">Generated order</button>
-                    {/* <Link to="/order"> <button className="form__submit">Generated order</button> </Link> */}
+
             </form>
         </div>)
         : <Order  order={order}/>}</>

@@ -5,7 +5,7 @@ import './ItemListContainer.css'
 import { Categories } from "../../components/Categories/Categories";
 import {getFirestore} from '../../firebase/client'
 
-export const ItemListContainer = ({}) => {
+export const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [notFound, setNotFound] = useState(false)
     const { id } = useParams();
