@@ -1,3 +1,24 @@
+Projecto Final de React - CoderHouse 2021
+
+•	E-commerce pensado para librerías: catálogo online de todos los productos junto con su detalle correspondiente + carrito de compras.
+•	HTML, CSS, REACTJS
+•	Base de datos con Firebase
+React-router-dom
+Este proyecto fue desarrollado como ejercitación de los conceptos vistos en clase durante la cursada online de ReactJs en Coderhouse.
+De qué se trata el proyecto
+Este proyecto es la simulación de un ecommerce, en este caso, de una artista que vende sus productos (dibujos, bordados,etc)
+Qué funcionalidades tiene el proyecto
+La aplicación se extiende sólo del lado del cliente, es decir, sólo cuenta con el Frontend del desarrollo.
+Integración con Firestore
+La aplicación está integrada a Cloud Firestore, un servicio de base de datos de Firebase (Google). Este servicio permite almacenar datos, tales como un listado de productos y sus características, y pedir esos datos desde la aplicación.
+React-router-dom
+React-dom es utilizado en la aplicación para crear rutas de navegación dinámicas.
+General
+El usuario recibe una landing con un catálogo de productos, cada uno con un enlace para ver su detalle. Además, tiene la posibilidad de navegar hacia distintas categorías desde la barra de navegación, las cuales filtrarán los productos mostrados en pantalla por la categoría respectiva. Una vez en el detalle, el usuario podrá seleccionar una cantidad de ese producto para añadir al carrito, limitado por un stock. Una vez agregado, podrá seguir su compra o terminarla. En el carrito verá los productos agregados con sus cantidades, subtotales y el valor total de la compra En este estado aun puede cambiar las cantidades de compra y tendrá la opción de quitar productos por tipo y de vaciar el carrito completo. Por último, tendrá la opción de comprar. Al decidirse por comprar se le pedirá que complete unos datos, tras lo cual se generará su orden y se le dará un número de orden.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
