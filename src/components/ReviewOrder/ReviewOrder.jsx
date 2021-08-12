@@ -12,7 +12,7 @@ export const ReviewOrder = () => {
             <ul className="reviewOrder_item">
                 {
                     cart.map(
-                            (obj, pos) => {
+                            (obj) => {
                                 return (
                                     <li key={obj.item.productId}>
                                         <div className="reviewOrder_item-info">

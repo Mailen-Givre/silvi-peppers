@@ -4,21 +4,25 @@ import { ItemCount } from "../ItemCount/ItemCount";
 import { CartContext } from '../../context/CartContext';
 
 export const AddCart = (id, item)=> {
-    console.log()
+    
     const [isActive, setActive] = useState(true);
     const {addProduct} = useContext(CartContext)
 /*     const [addItems, setAddItems] = useState(0) */
-    
+    const [addActive, setAddActive] = useState(false)
+    const [addQ, setAddQ] = useState(0)     
+
     const toggleClass = () => {
         setActive(!isActive);
-        console.log(isActive)
     };
     const stock = id.item.stock
+    
 
-    const onCart = (counter) => {
+    const onCart = (counter) => {     
 /*         setAddItems(counter) */
         /* addProduct(item, addItems) */
-        addProduct(item, counter)
+        addProduct(id.item, counter)
+        setAddActive(true)
+        setAddQ(counter)
       }
 
     return (
@@ -28,8 +32,11 @@ export const AddCart = (id, item)=> {
                 <img src= {process.env.PUBLIC_URL + "/multimedia/cart.svg"} alt="cart" className='cart'/>
                 <p className={isActive ? "appear addCart_text": "disappear addCart_text"}>Add to cart</p>
             </div>
-            <div className={isActive ? 'disappear addCart_count': 'appear addCart_count'}>
-            <ItemCount initial={1} item={item} stock={stock} onCart={onCart} />
+            <div className={!isActive && !addActive ? 'appear addCart_count' : 'disappear addCart_count'}>
+                <ItemCount initial={1} item={item} stock={stock} onCart={onCart} />
+            </div>
+            <div className={!isActive && addActive ? 'appear addCart_count' :'disappear addCart_count'}>
+                <p>{addQ} Item{addQ>1 ? 's' : ''} added to cart</p>
             </div>
             
         </div>

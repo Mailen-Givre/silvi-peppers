@@ -6,25 +6,24 @@ import './ItemDetail.css';
 import { useHistory } from "react-router-dom";
 
 export const ItemDetail = ({item})=> {
-    const {stock, setStock} = useContext(CartContext)
-    const {availableStock, setAvailableStock} = useContext(CartContext)
+    const {stock, setStock, getQuantity} = useContext(CartContext)
     const {addProduct} = useContext(CartContext)
-    let initial = 1
+    const initial = 1
     const [addItems, setAddItems] = useState(0)
-
-    useEffect(()=> { 
-        setStock(item.stock)
-    }, [setStock, item])
-
     let history = useHistory();
 
+    useEffect(()=> {
+        let newStock = getQuantity(item.id)
+        setStock(item.stock-newStock)
+    }, [setStock, item])
+    
     const onCart = (counter) => {
         setAddItems(counter)
         /* addProduct(item, addItems) */
         addProduct(item, counter)
-        setAvailableStock(item.stock-addItems)
+        setStock(stock-counter)
       }
-    
+
     return <>
         <button onClick={() => history.goBack()} className="goBack"><img src= {process.env.PUBLIC_URL + "/multimedia/flecha-izquierda.svg"} alt="go Back"/>Go back</button>
         <div className="itemDetail">
@@ -34,7 +33,7 @@ export const ItemDetail = ({item})=> {
                 <div className="details">
                     <p>{item.description}</p>
                     <p id="details_price"><b>Price:</b> ${item.price}</p><br/>
-                    <p><b>Available stock:</b> {availableStock}</p>
+                    <p><b>Available stock:</b> {stock}</p>
                       {addItems ?
                         <>
                             <button className="btn-finish"><NavLink className="link-finish" to="/cart">Finish my purchase</NavLink></button>

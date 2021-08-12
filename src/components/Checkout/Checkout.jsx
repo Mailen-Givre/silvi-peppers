@@ -9,8 +9,8 @@ export const Checkout = () => {
 
     return (
         <div className="checkout_container">
-        <CartForm cart={cart} total={total} />
-        <ReviewOrder/>
+            <CartForm cart={cart} total={total} />
+            {cart!=0 ? <ReviewOrder/> : null }
         </div>
     )
 }

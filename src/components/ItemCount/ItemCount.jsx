@@ -1,8 +1,11 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 import './ItemCount.css';
 
-export const ItemCount = ({initial, stock, onCart, itemId}) => {
+export const ItemCount = ({stock, onCart}) => {
+    const initial = 1
     const [counter, setCounter] = useState(initial);
+    const {setChange} = useContext(CartContext)
 
     const inputChangedHandler = (event) => {
         setCounter(event.target.value);
@@ -24,6 +27,10 @@ export const ItemCount = ({initial, stock, onCart, itemId}) => {
     const onAddCart = () => {
         onCart(counter)
     }
+
+    useEffect(()=> {
+        setChange(counter)
+    }, [counter])
 
     return (
         <div className= "contadorContenedor">

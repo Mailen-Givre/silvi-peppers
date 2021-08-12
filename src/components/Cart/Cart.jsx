@@ -11,8 +11,6 @@ export const Cart = () => {
   
   const totalPrice = total()
 
-
-
     return (
         <div className="cart_content">
           <h1>Your Shopping Cart</h1>

@@ -29,7 +29,7 @@ export const SearchResults = ({ items }) =>{
                             <NavLink to={`/item/${items.id}`} key={items.id}>
                                 <Item id={items.id} item={items}/>
                             </NavLink>
-                            <AddCart id={items.id}/>
+                            <AddCart id={items.id} item={items}/>
                         </div>
                     )
                 }) : 

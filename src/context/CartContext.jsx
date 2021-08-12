@@ -31,33 +31,42 @@ export const CartProvider = ({children}) => {
         return cart.find(ticket => ticket.item.productId === itemId)    
     }
 
-    const addMoreToCart = (itemId, addItems) => {  //cartModal
+    const addMoreToCart = (itemId, addItems) => {  
         searchIdInCart(itemId).quantity += addItems
     }
 
-    const mergeDuplicate = (purchase, itemId, addItems) => { //cartModal
+    const mergeDuplicate = (purchase, itemId, addItems) => { 
         cart.length && searchIdInCart(itemId) ? addMoreToCart(itemId, addItems) : setCart([...cart, purchase]) //crea un nuevo array para que note el cambio y reenderize (eso con push no pasa)
     }
 
-    const changeQuantity = (itemId, counter) => {  //CartView
-        searchIdInCart(itemId).quantity = counter
-        setCart([...cart])
+    const getQuantity = (id) => {
+        let quantity = 0
+        if (searchIdInCart(id)!== undefined){
+            quantity = searchIdInCart(id).quantity
+            return quantity
+        } else {return quantity}
     }
 
-    const removeFromCart = (itemId) => { //CartView
+    const removeFromCart = (itemId) => { 
         const filtered = cart.filter(purchase =>  //si se pone entre llaves, necesita return
             purchase.item.productId !== itemId
         )
         setCart(filtered)
     }
 
-    const cartCounter = () => { //CartWidget
+    const changeQuantity = (itemId, counter) => {  //CartView
+        console.log(itemId)
+        searchIdInCart(itemId).quantity = counter
+        setCart([...cart])
+    }
+
+    const cartCounter = () => { 
         return cart.reduce((acc, purchase) => {
             return acc + purchase.quantity
         }, 0)
     }
 
-    const total = () => { //CartView
+    const total = () => { 
         return cart.reduce((acc, purchase) => {
             return acc + purchase.item.price * purchase.quantity
         }, 0) //valor inicial del array
@@ -67,12 +76,12 @@ export const CartProvider = ({children}) => {
         setCart([])
     }
 
-    const [availableStock, setAvailableStock] = useState()
+    const [change, setChange] = useState(0)
 
 
     return (
-        <CartContext.Provider value={{cart, setCart, searchIdInCart, stock, setStock, addMoreToCart, changeQuantity,
-          removeFromCart, addProduct, mergeDuplicate, clearCart, total, cartCounter, availableStock, setAvailableStock
+        <CartContext.Provider value={{cart, setCart, searchIdInCart, stock, setStock, addMoreToCart,
+          removeFromCart, addProduct, mergeDuplicate, clearCart, total, cartCounter, getQuantity, changeQuantity, change, setChange
           }}>
             {children}
         </CartContext.Provider>

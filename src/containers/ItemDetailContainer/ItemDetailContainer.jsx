@@ -15,7 +15,7 @@ export const ItemDetailContainer = () => {
            !snapshot.exists ? setNotFound(true) : setProduct({id: snapshot.id, ...snapshot.data()})
         });
       };
-    
+      
       useEffect(() => {
         getItem(id);
       }, [id]);

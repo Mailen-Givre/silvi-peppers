@@ -16,7 +16,7 @@ export const ItemList = ({items}) => {
                         <NavLink to={`/item/${item.id}`}>
                             <Item key={item.id} item={item}/>
                         </NavLink>
-                        <AddCart id={item.id} item={item}/>
+                        <AddCart key={item.id} item={item}/>
                     </div>
                 )
             })}  

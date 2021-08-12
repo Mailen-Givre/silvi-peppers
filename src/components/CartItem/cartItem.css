@@ -47,3 +47,33 @@
 .cartItem_price{
     color: grey;
 }
+
+.cart_quantity{
+    display: flex;
+    justify-content: space-between;
+    width: 5rem;
+}
+
+.cart_edit{
+    border: none;
+    background-color: #d32854;
+    color: white;
+    padding: 0.5rem 1rem;
+    height: 60%; 
+    margin-top: 15%;
+    margin-left: 1rem;
+}
+
+.cart_save{
+    border: none;
+    background-color: #d32854;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.cart_quantity-size{
+    transform: scale(0.9);
+    margin-top: 0.5rem;
+    margin-left: -2rem;
+    margin-right: 3rem;
+}

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import "./cartForm.css"
 import FormInput from "../FormInput/FormInput"
 import { Order } from '../Order/Order';
+import { CartContext } from '../../context/CartContext';
  
 
 export const CartForm = ({cart, total}) => {
@@ -67,7 +68,9 @@ export const CartForm = ({cart, total}) => {
         { name: "phone", type: "tel", label: "Phone", placeholder:"+56 2 12345678"},
         { name: "email", type: "email", label: "Email Address"}
     ]
-    
+
+    const {clearCart} = useContext(CartContext)
+
     return (
         <>{!order ?
         (<div className="form_container">
@@ -78,10 +81,10 @@ export const CartForm = ({cart, total}) => {
                     valueHandler={valueHandler} validate={validate} formError={formError} /> )
                 }
 
-                    <button type="submit" className="form__submit">Generated order</button>
+                    <button onClick={clearCart} type="submit" className="form__submit">Generate order</button>
 
             </form>
         </div>)
-        : <Order  order={order}/>}</>
+        : <Order order={order}/>}</>
     )
 }
