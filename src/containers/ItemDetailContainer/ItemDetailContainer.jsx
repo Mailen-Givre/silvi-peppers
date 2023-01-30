@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
       useEffect(() => {
         getItem(id);
       }, [id]);
-
+      
     return (
         <>
         {product === '' 

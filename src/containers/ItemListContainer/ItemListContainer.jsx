@@ -37,7 +37,7 @@ export const ItemListContainer = () => {
             })
             return () => setProducts([]) + setNotFound(false)
         }, [id]);
-        
+        console.log(products)
     return (
       <>
         <Categories/>

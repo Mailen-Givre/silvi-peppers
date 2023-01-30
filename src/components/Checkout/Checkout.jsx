@@ -10,7 +10,7 @@ export const Checkout = () => {
     return (
         <div className="checkout_container">
             <CartForm cart={cart} total={total} />
-            {cart!=0 ? <ReviewOrder/> : null }
+            {cart!==0 ? <ReviewOrder/> : null }
         </div>
     )
 }

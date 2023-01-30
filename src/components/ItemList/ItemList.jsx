@@ -12,11 +12,11 @@ export const ItemList = ({items}) => {
         <div className="flex">
             { items.map((item)=>{
                 return (
-                    <div className="items">
+                    <div className="items" key={item.id}>
                         <NavLink to={`/item/${item.id}`}>
-                            <Item key={item.id} item={item}/>
+                            <Item item={item}/>
                         </NavLink>
-                        <AddCart key={item.id} item={item}/>
+                        <AddCart item={item}/>
                     </div>
                 )
             })}  

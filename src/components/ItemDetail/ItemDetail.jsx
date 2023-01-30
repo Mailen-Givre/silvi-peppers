@@ -15,11 +15,10 @@ export const ItemDetail = ({item})=> {
     useEffect(()=> {
         let newStock = getQuantity(item.id)
         setStock(item.stock-newStock)
-    }, [setStock, item])
+    }, [setStock, item, getQuantity])
     
     const onCart = (counter) => {
         setAddItems(counter)
-        /* addProduct(item, addItems) */
         addProduct(item, counter)
         setStock(stock-counter)
       }

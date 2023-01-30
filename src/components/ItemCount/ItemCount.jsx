@@ -30,7 +30,7 @@ export const ItemCount = ({stock, onCart}) => {
 
     useEffect(()=> {
         setChange(counter)
-    }, [counter])
+    }, [counter, setChange])
 
     return (
         <div className= "contadorContenedor">
